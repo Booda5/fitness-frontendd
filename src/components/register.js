@@ -47,14 +47,14 @@ const RegisterUser = () => {
       <div id='registerPage'>
             <h1>REGISTER NEW USER</h1>
         <form>
-            <label for="username">Username: </label>
+            <label type="username">Username: </label>
             <input type="text" id="username" placeholder="Username" value={user} onChange={handleUserChange}  />
             <br/>
-            <label for="password">Password: </label>
+            <label type="password">Password: </label>
             <input type="password" className="password" placeholder="Password" id="password" value={password}
              onChange={handlePasswordChange}/>
             <br/>
-            <label for="confirm-password">Confirm Password: </label>
+            <label type="confirm-password">Confirm Password: </label>
             <input type="password" className="confirm_password" placeholder="Re-Enter Password" id="confirm-password"
             />
              <br/>

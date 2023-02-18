@@ -23,7 +23,6 @@ const EditRoutine = (routineId) => {
         }
         // console.log(storedToken, routineId.routineId, newName, newGoal, true)
         const results = await editRoutine(updatedRoutine)
-        console.log('22222')
         // fetchRoutines();
         // navigate1(`/routines`)
     }

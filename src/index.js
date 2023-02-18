@@ -9,6 +9,8 @@ import {
     Navbar,
     Register,
     Routines,
+    MyRoutines,
+    Footer,
     CreateNewRoutine,
     CreateActivity
     } from './components';
@@ -30,7 +32,7 @@ const App = () => {
     const [user, setUser] = useState('');
     const [activities, setActivities] = useState([]);
     const [routines, setRoutines] = useState([]);
-    //const [Myroutines, setMyRoutines] = useState([]);
+    const [Myroutines, setMyRoutines] = useState([]);
     
     const navigate = useNavigate();
 
@@ -50,12 +52,12 @@ const App = () => {
         setActivities(results.data);
     }
 
-    // async function fetchMyRoutines() {
-    //     if (user) {
-    //         const results = await getMyRoutines(token, user)
-    //         setMyRoutines(results);
-    //     }
-    // }
+    async function fetchMyRoutines() {
+        if (user) {
+            const results = await getMyRoutines(token, user)
+            setMyRoutines(results);
+        }
+    }
 
     async function getMe() {
         const storedToken = window.localStorage.getItem('fitness_tracker_JWT');
@@ -81,9 +83,9 @@ const App = () => {
         fetchActivities();
     }, [token])
 
-    // useEffect(() => {
-    //     fetchMyRoutines();
-    // }, [token, user])
+   useEffect(() => {
+       fetchMyRoutines();
+   }, [token, user])
 
     
  
@@ -100,7 +102,7 @@ const App = () => {
                     path='/routines'
                     element={<Routines
                         token={token}
-                        routines={Routines}
+                        routines={routines}
                         fetchRoutines={fetchRoutines}
                     />} 
                 />
@@ -121,15 +123,15 @@ const App = () => {
                         fetchActivities={fetchActivities}
                     />}
                 />
-                <Route
+                { <Route
                     path='/My_routines'
-                    element={<My_routines
+                    element={<MyRoutines
                         token={token}
-                        My_routines={Myroutines}
+                        MyRoutines={Myroutines}
                         navigate={navigate}
                         fetchRoutines={fetchRoutines}
                     />}
-                />
+                /> }
                 <Route
                     path='/CreateNewRoutine'
                     element={<createNewRoutine
@@ -155,6 +157,7 @@ const App = () => {
                     />} 
                 />
             </Routes>
+            <Footer />
         </div>
     )
 }

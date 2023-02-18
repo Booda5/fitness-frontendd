@@ -59,13 +59,13 @@ export const getUser = async (token) => {
 }
 
 export const getUserRoutine = async (username) => {
-  // const token = localStorage.getItem('fitness_tracker_JWT');
+   const token = localStorage.getItem('fitness_tracker_JWT');
   try {
     const response = await fetch(`${baseURL}users/${username}/routines`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        // 'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       },
     });
     const result = await response.json();
@@ -95,7 +95,7 @@ export const getAllRoutines = async () => {
 //GET /api/activities
 export const getAllActivities = async () => {
   try {
-    const response = await fetch(`${baseURL}activities`, {
+    const response = await fetch(`${baseURL}/activities`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -119,6 +119,7 @@ export const createActivity = async (token, name, description)=> {
       body: JSON.stringify({
           name: name,
           description: description,
+          token: token
       })
     })
     
@@ -319,7 +320,7 @@ export const deleteActivity = async (token) => {
 }
 
 export const getRoutinesByUser = async () => {
-  const user = await testAuthentication(localStorage.getItem('fitness_tracker_JWT'));
+  const user = await getUser(localStorage.getItem('fitness_tracker_JWT')); 
   const username = user.username;
   const url = `${baseURL}users/${username}/routines`;
   const response = await fetch(url, {
@@ -366,7 +367,8 @@ export async function editRoutine({ token, name, goal, isPublic, activities, rou
               name: name,
               goal: goal,
               isPublic: isPublic,
-              activities: activities
+              activities: activities,
+              token: token
           })
       });
       const result = await response.json();

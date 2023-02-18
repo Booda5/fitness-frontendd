@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getAllRoutines } from '../api';
 
-const Routines = ({allActivities} ) => {
+const Routines = ({ allActivities } ) => {
     const [allRoutines, setAllRoutines] = useState([]);
         useEffect(()=> {
             async function fetchRoutines(){
