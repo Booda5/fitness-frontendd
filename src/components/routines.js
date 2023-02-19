@@ -18,23 +18,23 @@ const Routines = ({ allActivities } ) => {
     
     const reverseList = allRoutines.slice(0).reverse();
     const displayRoutines = allRoutines.length ? (
-      <div>
-        <h1>Routines</h1>
+      <div >
+        <h1 className="page-title">Routines</h1>
         {reverseList.map((routine, index) => {
           return (
             <div className="routine-card" key={index}>
               <h1 >{routine.name}</h1>
-              <h3 >Creator</h3>
-              <p> {routine.creatorName}</p>
-              <h3> Goal </h3>
-              <p> {routine.goal}</p>
+              <h3 >Created by:  {routine.creatorName}</h3>
+
+              <h3> </h3>
+              <p>Goal:  {routine.goal}</p>
               {routine.activities.map((activity, index) => (
                 <div key={index} className="activity-card">
           
-                  <h1>Related Activity | &nbsp; {activity.name}</h1> <p></p>
-                  <p> Description | {activity.description}</p> <p></p>
-                  <p> Duration | {activity.duration}</p> <p></p>
-                  <p> Count | {activity.count}</p> <p></p>
+                  <h1>Related Activity: {activity.name}</h1> <p></p>
+                  <p> Description: {activity.description}</p> <p></p>
+                  <p> Duration: {activity.duration}</p> <p></p>
+                  <p> Count: {activity.count}</p> <p></p>
                 </div>
               ))}
             </div>

@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Parisienne|Roboto|Playfair+Display|Roboto+Condensed&display=swap');
+/* #fff7f2
+#c05d23
+#dfe0df
+ */
 
-Body {
+ * {
+  border: 0;
+}
+
+
+body {
   font-family: 'Dosis', sans-serif;
   text-align: center;
   color: black;
@@ -12,16 +21,15 @@ Body {
   background: url('https://st3.depositphotos.com/9527076/13770/i/450/depositphotos_137700310-stock-photo-fitness-workout-background-dumbbells-on.jpg"');
 }
 
-* {
-  color: rgb(26, 24, 24);
+a {
+  color: #fff7f2;
   text-decoration: none;
   transition: 0.3s;
+
   
   
 }
-*:hover{
-    background-color: #da863d;
-}
+
 
 nav {
   display: flex;
@@ -37,14 +45,19 @@ nav {
 
 button {
   align-items: center;
-  padding: 0.5rem 1rem;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+ padding: 0.5rem 1rem 0.5rem 1rem;
+  margin: 20px 0 20px 0;
   font-size: 30px;
   font-weight: bold;
-  background-color: #b45822;
+  background-color: #54433a;
   text-align: center;
   border-radius: 10px;
+}
+
+button:hover{
+  background-color: rgba(22, 140, 55, .9);
+  box-shadow: 2px 2px 2px 1px white;
+  
 }
 
 form {
@@ -140,21 +153,7 @@ form {
   border-radius: 8px;
 }
 
-* {
-    border: 0;
-}
-/* h1 {
-    max-width: 60vw;
-    margin-top: 2rem;
-    margin-left: 20vw;
-    padding: 0.5rem 0 0.5rem 0;
 
-    font-size:2rem;
-    color: #dfe0df;
-    background-color: rgb(192, 93, 35);
-    
-   
-} */
 
 #Navbar {
     font-family:'Dosis', sans-serif;
@@ -186,9 +185,7 @@ justify-items: space-around;
     font-size: 3rem;
 } 
 
-button:hover { 
-    background-color: rgb(240, 135, 16);
-} 
+
 .footer {
     position: fixed;
     left: 0;
@@ -205,22 +202,17 @@ button:hover {
     justify-content: space-between;
     align-items: center;
   }
-  p{
-      padding-right: 5px;
-  }
-  
-  h6 {
-    text-decoration: none;
-    color: rgba(70, 52, 4, 0.628);
-  }
 
-  .routine-card {
-    background-color: #dfe0df;
-    max-width: 60vw;
-    margin-top: 2rem;
-    margin-left: 20vw;
-    padding: 0 0 0.5rem 0;
-  }
+
+
+
+.routine-card {
+  background-color: #dfe0df;
+  max-width: 60vw;
+  margin-top: 2rem;
+  margin-left: 20vw;
+  padding: 0 0 0.5rem 0;
+}
 
   .routine-card h1 {
 
@@ -232,6 +224,7 @@ button:hover {
     background-color: rgb(192, 93, 35);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   }
+
   .routine-card h3 {
 
     text-align: left;
@@ -254,20 +247,46 @@ button:hover {
 
 .activity-card {
 
-  background-color: #dfe0df;
+  background-color: #fff7f2;
   max-width: 80%;
   margin-left: 10%;
   margin-top: 2rem;
   padding: 0 0 0.5rem 0;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.activity-card h1 {
+  .activity-card h1 {
 
-  padding: 0.5rem 0 0.5rem 0;
+    padding: 0.5rem 0 0.5rem 0;
+  
 
-  font-size: 2rem;
+    font-size: 2rem;
 
-  color: #dfe0df;
-  background-color: rgb(192, 93, 35);
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    color: #fff7f2;
+    background-color: #b5866e;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+
+.page-title {
+  color: #fff7f2;
+  background-color: #54433a;
+
+  max-width: 60vw;
+  margin-top: 2rem;
+  margin-left: 20vw;
+  padding: 1rem 0 1rem 0;
+  border-radius: 5%;
+}
+
+#all-activities {
+  max-width: 60vw;
+  background-color: rgba(64, 46, 50, 0.8);
+  margin-left: 20vw;
+}
+
+#user-routines {
+  max-width: 60vw;
+  background-color: rgba(64, 46, 50, 0.8);
+  margin-left: 20vw;
 }

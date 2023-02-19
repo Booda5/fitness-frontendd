@@ -29,7 +29,7 @@ const Activities = () => {
                 setCreateNew(true);
               }}
             >
-              <span className="material-icons"></span>
+              <span></span>
               Create New Activity
             </button>
             {createNew ? (
@@ -49,12 +49,14 @@ const Activities = () => {
           </div>
         ) : null}
       </>
-      <div className="all-activities">
+      <h1 className="page-title">Activities</h1>
+      <div id="all-activities">
+        
         {activity.map((activity, index) => {
           return (
-            <div className="activities" key={index}>
-              <p id="activity-name">{activity.name}</p>
-              <p id="activity-description">{activity.description}</p>
+            <div className="activity-card" key={index}>
+              <h1 id="activity-name">{activity.name}</h1>
+              <p id="activity-description">Description: {activity.description}</p>
             </div>
           );
         })}

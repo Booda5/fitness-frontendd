@@ -43,12 +43,12 @@ const My_routines = () => {
   }, [info]);
 
   return (
-    <div>
-      {info && info.username ? <h2 id="main-ctr">Hello {info.username}!</h2> : null}
-      <h3>Welcome to your routines!</h3>
+    <div id="user-routines">
+      {info && info.username ? <h1 id="main-ctr" className="page-title">Hello {info.username}!</h1> : null}
+      <h3>Create a New Routine</h3>
 
       <CreateNewRoutine myRoutines={myRoutines} setMyRoutines={setMyRoutines} />
-      <h1>User Routines:</h1>
+      <h1> Your Routines:</h1>
       {myRoutines && myRoutines.length
         ? myRoutines.map((routine, index) => {
             return (
