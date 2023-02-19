@@ -5,7 +5,8 @@ import { getAllRoutines } from '../api';
 
 const Routines = ({ allActivities } ) => {
     const [allRoutines, setAllRoutines] = useState([]);
-        useEffect(()=> {
+        
+    useEffect(()=> {
             async function fetchRoutines(){
                 if(!allRoutines.length){
                     const retrievedRoutines = await getAllRoutines();
@@ -17,19 +18,23 @@ const Routines = ({ allActivities } ) => {
     
     const reverseList = allRoutines.slice(0).reverse();
     const displayRoutines = allRoutines.length ? (
-      <div className="boxAll">
-        {reverseList.map((element, index) => {
+      <div>
+        <h1>Routines</h1>
+        {reverseList.map((routine, index) => {
           return (
-            <div className="border-solid border-2 border-teal-900" key={index}>
-              <h1 className="font-bold ml-2 underline underline-offset-4" >Creator:</h1> <p className="ml-2 " >{element.creatorName}</p>
-              <h2 className="font-bold ml-2 underline underline-offset-4" >Routine Title:</h2> <p className="ml-2"> {element.name}</p>
-              <p className="font-bold ml-2 underline underline-offset-4" >Routine Goal: </p> <p className="ml-2">{element.goal}</p>
-              {element.activities.map((activity, index) => (
-                <div key={index}>
-                  <p className="font-bold ml-2 underline underline-offset-4" >Activity Name:</p> <p className="ml-2">{activity.name}</p>
-                  <p className="font-bold ml-2 underline underline-offset-4" > Activity Description:</p> <p className="ml-2">{activity.description}</p>
-                  <p className="font-bold ml-2 underline underline-offset-4" > Duration:</p> <p className="ml-2">{activity.duration}</p>
-                  <p className="font-bold ml-2 underline underline-offset-4" > Count:</p> <p className="ml-2">{activity.count}</p>
+            <div className="routine-card" key={index}>
+              <h1 >{routine.name}</h1>
+              <h3 >Creator</h3>
+              <p> {routine.creatorName}</p>
+              <h3> Goal </h3>
+              <p> {routine.goal}</p>
+              {routine.activities.map((activity, index) => (
+                <div key={index} className="activity-card">
+          
+                  <h1>Related Activity | &nbsp; {activity.name}</h1> <p></p>
+                  <p> Description | {activity.description}</p> <p></p>
+                  <p> Duration | {activity.duration}</p> <p></p>
+                  <p> Count | {activity.count}</p> <p></p>
                 </div>
               ))}
             </div>

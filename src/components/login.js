@@ -20,6 +20,7 @@ const Login = () => {
     const token = res['token']
     console.log(token, 'login component')
     window.localStorage.setItem('fitness_tracker_JWT', token);
+    window.alert(res.message)
     window.location.assign("/");
   };
 

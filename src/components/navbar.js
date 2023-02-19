@@ -29,7 +29,6 @@ const Navbar = ({ logout, token }) => {
                         <Link to='/' onClick={() => logout()}>Logout</Link>
                     ) : (
                         
-                            // <Link to='/register'>Register</Link>
                             <Link to='/'>Logout</Link>
                     )
                 }

@@ -11,6 +11,7 @@ const CreateActivity = ({activity, setActivity}) => {
         const storedToken = window.localStorage.getItem('fitness_tracker_JWT');
         console.log(name, description, storedToken)
         const userActivities = await createActivity(storedToken, name, description);
+        window.alert(userActivities.message);
         navigate("/activities")
     }
 
